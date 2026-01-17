@@ -6,7 +6,10 @@ import { ProductController } from "@/controllers/products-controller.js"
 const productsRoutes = Router()
 const productsController = new ProductController()
 
-//Defining get method
+//GET
 productsRoutes.get("/", productsController.index)
+
+//POST
+productsRoutes.post("/", productsController.create)
 
 export { productsRoutes }
