@@ -24,7 +24,9 @@ class ProductController {
 
       const { name, price } = bodySchema.parse(request.body)
 
-      await knex("products").insert({ })
+      //Utilizing knex with type of our custom class, to avoid inserting
+      //wrong types of data into the database
+      await knex<ProductRepository>("products").insert({ })
 
       return response.status(201).json({ name, price})
     } 
