@@ -8,8 +8,14 @@ class ProductController {
   //Function to add index to class
   async index(request: Request, response: Response, next: NextFunction){
     try {
+      const { name } = request.query
 
-      return response.json({ message: "ok"})
+      const products = await knex<ProductRepository>("products")
+        .select()
+        .whereLike("name", `%${name ?? ""}%`) //If find a name, use name, else, use empty string
+        .orderBy("name")
+
+      return response.json(products)
     } catch (error) {
       next(error);
     }
