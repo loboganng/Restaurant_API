@@ -12,4 +12,7 @@ productsRoutes.get("/", productsController.index)
 //POST
 productsRoutes.post("/", productsController.create)
 
+//UPDATE
+productsRoutes.put("/:id", productsController.update)
+
 export { productsRoutes }
