@@ -15,4 +15,7 @@ productsRoutes.post("/", productsController.create)
 //UPDATE
 productsRoutes.put("/:id", productsController.update)
 
+//DELTE
+productsRoutes.delete("/:id", productsController.remove)
+
 export { productsRoutes }
